@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { DBProviderService } from '../../services/dbprovider.service';
 
@@ -7,15 +7,12 @@ import { DBProviderService } from '../../services/dbprovider.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage implements OnDestroy {
+export class HomePage {
 
   registros = [];
 
   constructor( public _DB: DBProviderService,
                private alertController: AlertController ) {
-  }
-  ngOnDestroy(): void {
-    console.log('Destruida');
   }
 
   eliminarRegistro( index: number ) {

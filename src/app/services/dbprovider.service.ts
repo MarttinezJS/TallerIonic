@@ -12,7 +12,7 @@ export class DBProviderService {
     this.traerRegistros();
   }
 
-  async traerRegistros(){
+  private async traerRegistros(){
 
     this.registros = await this.storage.get('registros');
 
@@ -27,6 +27,8 @@ export class DBProviderService {
 
     this.registros.unshift( post );
     this.storage.set('registros', this.registros);
+
+    this.registros$.emit(this.registros);
   }
 
   editarRegistro( index: number, post ){
